@@ -15,28 +15,27 @@ void print_um(unordered_map<string, string>m)
 	cout<<"(KEY--> "<<it->first<<" VALUE--> "<<it->second<<")"<<endl;
 	}
 }
-
-
 int main()
 {
+
+	// Inputting into Map
 	unordered_map<string, string> um; // declaration of map
-	int size;
 	int index;
+	int size;
 	string key;
 	string value;
 	cout<<"Enter Number Of ELements"<<endl;
 	cin>>size;
 	for(int i=0; i<size; i++)
 	{
-		cout<<"Enter The Key: "<<endl;
+		cout<<"Enter The Key: --> "<<endl;
 		cin>> key;
-		cout<<"Enter The Value: "<<endl;
+		cout<<"Enter The Value: --> "<<endl;
 		cin>> value;
 		um.insert(pair<string, string> (key, value));
 	}
 
 	// size() and empty()
-	
 	cout<<"Number of element in map are "<< um.size() <<endl;
 	if(!um.empty())
 	{
@@ -48,7 +47,6 @@ int main()
 	}
 
 	// find() and count()
-	
 	cout<<"Enter the key"<<endl;
 	cin>>key;
 	unordered_map<string,string> :: iterator it_find;
@@ -66,23 +64,21 @@ int main()
 
 	if(!um.count(key))
 	{
-		cout<<"Element found"<< endl;
+		cout<<"Element not found in map"<< endl;
 	}
 	else
 	{
-		cout<<"Element not found "<< endl;
+		cout<<"Element found in map"<< endl;
 	}
 
 	// erase by key
-	
-	cout<<"Enter the key"<<endl;
+	cout<<"Enter the key for erasing through key" <<endl;
 	cin>>key;
 	um.erase(key);
 	print_um(um);
 
 	// erase by iterator
-	
-	cout<<"Enter the index"<<endl;
+	cout<<"Enter the index for erasing through iterator"<<endl;
 	cin>>index;
 	unordered_map<string,string> :: iterator it_erase;
 	cout<<"Enter number of bucket in map "<< um.bucket_count() <<endl;
@@ -93,8 +89,6 @@ int main()
 	print_um(um);
 
 	// bucket(), bucket_size(), bucket_count()
-	
-
 	for(it_bucket = um.begin(); it_bucket != um.end(); it_bucket++)
 	{
 		cout<<"(KEY--> "<< it_bucket->first <<" VALUE--> "<<it_bucket->second<<" Bucket-->"<< um.bucket(it_bucket->first) <<endl;
